@@ -1,8 +1,8 @@
+require("dotenv").config();
 import app from "./api";
 
 const http = require("http");
 const log = require("debug")("log");
-require("dotenv").config();
 
 const startServer = () => {
   const server = http.createServer(app);
