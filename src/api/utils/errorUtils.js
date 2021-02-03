@@ -6,6 +6,7 @@ export class CustomError extends Error {
     this.errors = errors;
   }
 }
+const log = require("debug")("log");
 
 export const errorHandler = (err, req, res) => {
   if (err.statusCode) {
@@ -25,5 +26,7 @@ export const errorHandler = (err, req, res) => {
       status: "error",
       error: "Internal server error",
     });
+
+    log(err.message);
   }
 };
