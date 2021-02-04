@@ -16,5 +16,6 @@ const protectedRoutes = express.Router();
 protectedRoutes.use(jwtMW);
 protectedRoutes.get("/", (req, res) => res.send("Passed"));
 protectedRoutes.post("/json-patch", protectedCtrl.jsonPatch);
+protectedRoutes.post("/create-thumbnail", protectedCtrl.createThumbnail);
 
 export default protectedRoutes;

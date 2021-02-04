@@ -45,3 +45,20 @@ export const validateJsonPatchObject = (patch) => {
 
   return error;
 };
+
+export const validateURL = (url) => {
+  let error;
+
+  if (!url) {
+    error = `No URL provided`;
+  } else {
+    try {
+      new URL(url);
+    } catch (err) {
+      // error thrown on invalid url
+      error = `Invalid URL provided [Valid url pattern: http(s)://abc.xyz.....])`;
+    }
+  }
+
+  return error;
+};
