@@ -20,7 +20,7 @@ app.use("/utils", protectedRoutes);
 
 // base route
 app.get("/", (req, res) => {
-  return jsonResponse(res, 200, { message: "Server is up and running" });
+  return jsonResponse(res, 200, undefined, "Server is up and running");
 });
 
 // routes not found go here

@@ -10,11 +10,7 @@ import fetch from "node-fetch";
 const { applyPatch } = require("fast-json-patch");
 const sharp = require("sharp");
 
-export const convertImageToThumbnail = async (
-  imageBuffer,
-  width = 50,
-  height = 50
-) => {
+export const convertImageToThumbnail = async (imageBuffer, width, height) => {
   let thumbnail, mimeType;
   const { data, info } = await sharp(imageBuffer)
     .resize(width, height)
@@ -87,7 +83,9 @@ export const protectedCtrl = {
       try {
         // convert imageBuffer to thumbnail and store in buffer
         const { thumbnail, mimeType } = await convertImageToThumbnail(
-          imageBuffer
+          imageBuffer,
+          50,
+          50
         );
 
         if (raw) {
