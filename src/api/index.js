@@ -5,12 +5,27 @@ import protectedRoutes from "./routes/protectedRoutes";
 import { CustomError, errorHandler } from "./utils/errorUtils";
 import { jsonResponse } from "./utils/responseUtils";
 import docsRouter from "./routes/docsRoute";
+import morgan from "morgan";
+import path from "path";
+import { cwd } from "process";
+
+const rfs = require("rotating-file-stream");
 
 // create express app
 const app = express();
 
 // set up CORS
 app.use(cors());
+
+// setup logging middleware
+// create a rotating write stream
+const logStream = rfs.createStream("requests.log", {
+  interval: "1d", // rotate daily
+  path: path.join(cwd(), "logs"),
+});
+
+// setup the morgan logger
+app.use(morgan("tiny", { stream: logStream }));
 
 // include middleware to enable json body parsing and nested objects
 app.use(express.json());
