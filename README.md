@@ -114,3 +114,60 @@ STATUS 200
   status: "success"
 }
 ```
+
+## Response Formats
+
+All responses both successful and error responses, with the exception of the raw thumbnail image are returned as JSON objects with a fixed format
+
+### Success Response
+
+```
+STATUS: 200
+BODY
+{
+  status: "success"
+  message: "An optional human-readable message describing the operation carried out"
+  data: "An object containing returned data"
+}
+
+```
+
+### Error Response
+
+```
+STATUS: 400 or 500
+BODY
+{
+  status: "error"
+  error: "A human-readable message describing the error that occured"
+  errors: "An optional array of all errors encoutered e.g validation errors"
+}
+
+```
+
+## Local Development
+Firstly, setup the following environment variables locally, preferrably through a .env file. A sample .env file has been provided which can be easily renamed and populated.
+- PORT: The port the server should listen on
+- JWT_SECRET: An abritary string used in signing JWT tokens for authentication
+
+### Installation
+
+- After cloning this repository, run `npm install` to install all dependencies
+### Testing
+
+The project is tested using the mocha/chai test suite. 
+- Run `npm run test` to run all tests and view code coverage report.
+- Run `npm run test:lint` to lint the code before running tests. 
+
+### Linting
+
+Code consistency and linting is powered by a combination of ESLint and prettier. 
+- Run `npm run lint` to lint/format the source code
+- Run `npm run lint:fix` to lint/format and fix all auto-fixable errors
+
+### Running
+This project is built using latest ES standards and supports ES6 modules. In development `babel-node` transpiles/builds the source files and runs the application using `nodemon` for hot reloads. In production, however, using `babel-node` is discouraged, so the code is first compiled via the `babel` CLI and then run by the `node` server. The following scripts are available
+- Run `npm run dev` to run application in development with hot reload
+- Run `npm run start` to build and run the application in production mode (implies `npm run build && npm run start:built`)
+- Run `npm run build` to build the source files only, into the `build` folder
+- Run `npm run start:built` to run existing built source files from the `build` folder
