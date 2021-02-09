@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "DEBUG=log NODE_ENV=dev nodemon --exec babel-node ./src/index.js",
-    "start": "DEBUG=log NODE_ENV=production node ./build/index.js",
+    "start": "DEBUG=log NODE_ENV=production npm run build && node ./build/index.js",
     "build": "babel src --out-dir build --delete-dir-on-start",
     "lint": "eslint \"src/**\"",
     "lint:fix": "eslint --fix \"src/**\"",
@@ -35,7 +35,9 @@
     "fast-json-patch": "^3.0.0-1",
     "jsonwebtoken": "^8.5.1",
     "node-fetch": "^2.6.1",
-    "sharp": "^0.27.1"
+    "sharp": "^0.27.1",
+    "swagger-jsdoc": "^6.0.2",
+    "swagger-ui-express": "^4.1.6"
   },
   "devDependencies": {
     "@babel/cli": "^7.12.10",

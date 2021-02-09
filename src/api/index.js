@@ -4,6 +4,7 @@ import publicRoutes from "./routes/publicRoutes";
 import protectedRoutes from "./routes/protectedRoutes";
 import { CustomError, errorHandler } from "./utils/errorUtils";
 import { jsonResponse } from "./utils/responseUtils";
+import docsRouter from "./routes/docsRoute";
 
 // create express app
 const app = express();
@@ -17,6 +18,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/login", publicRoutes);
 app.use("/utils", protectedRoutes);
+app.use("/docs", docsRouter);
 
 // base route
 app.get("/", (req, res) => {

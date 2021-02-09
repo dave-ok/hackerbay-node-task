@@ -88,13 +88,18 @@ export const protectedCtrl = {
           50
         );
 
-        if (raw) {
+        if (raw === "true") {
           // return buffered thumbnail
           res.type(mimeType);
           return res.send(thumbnail);
         } else {
           const base64Thumbnail = thumbnail.toString("base64");
-          return jsonResponse(res, 200, { base64Thumbnail });
+          return jsonResponse(
+            res,
+            200,
+            { base64Thumbnail },
+            "Thumbnail created!"
+          );
         }
       } catch (error) {
         throw new CustomError(
