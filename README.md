@@ -1,10 +1,10 @@
-# Backend Task for HackerBay Interview (using NodeJS)
+# Backend Task for HackerBay (using NodeJS)
 
 This is a short project in fulfillment of preliminary requirements for the role of a software developer in HackerBay. This task focuses on showcasing backend skills by building a simple REST API using NodeJS.
 
 ## REST API features
 
-The REST API comprises 4 endpoints (2 unprotected/public and 2 protected endpoints). This README assumes the project is being run locally on `http://localhost`. Replace this with the appropriate server base url where applicable.
+The REST API comprises 4 endpoints (2 unprotected/public and 2 protected endpoints). This README assumes the project is being run locally on `http://localhost`. Replace this with the appropriate server base url where applicable. All requests are logged daily in separate log files in the `logs` folder at the application root.
 
 ### Documentation Endpoint
 
@@ -146,8 +146,10 @@ BODY
 ```
 
 ## Local Development
-Firstly, setup the following environment variables locally, preferrably through a .env file. A sample .env file has been provided which can be easily renamed and populated.
-- PORT: The port the server should listen on
+
+First, setup the following environment variables locally, preferrably through a `.env` file. Although reasonable default values for the environment variables have been provided, you can specify custom values in your `.env` file or local environment. A sample .env file has been provided which can be easily renamed and populated.
+
+- PORT: The port the server should listen on (default: 5000)
 - JWT_SECRET: An abritary string used in signing JWT tokens for authentication
 
 ### Installation
@@ -166,8 +168,22 @@ Code consistency and linting is powered by a combination of ESLint and prettier.
 - Run `npm run lint:fix` to lint/format and fix all auto-fixable errors
 
 ### Running
+
+### Running on Development Machine
 This project is built using latest ES standards and supports ES6 modules. In development `babel-node` transpiles/builds the source files and runs the application using `nodemon` for hot reloads. In production, however, using `babel-node` is discouraged, so the code is first compiled via the `babel` CLI and then run by the `node` server. The following scripts are available
 - Run `npm run dev` to run application in development with hot reload
 - Run `npm run start` to build and run the application in production mode (implies `npm run build && npm run start:built`)
 - Run `npm run build` to build the source files only, into the `build` folder
 - Run `npm run start:built` to run existing built source files from the `build` folder
+
+### Running the Dockerized Image
+
+The built docker image of this application is available in the dockerhub reposoitory at 
+```
+daveok12/hackerbay-node-task:latest
+``` 
+or you could build the image locally with the provided `Dockerfile`. Even though default environment variables have been defined, containers should be ideally be run with the `--env-file` option, specifying the path to the `.env` file and publishing the corresponding ports (`--publish <local-port>:<image-port>`). For Example
+
+```
+  docker container run --env-file .env --publish 5000:5000 <image-name-here>
+```
