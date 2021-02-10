@@ -107,7 +107,7 @@ Sample Raw Thumbnail Response:
 
 ```
 STATUS 200
-Response Body: <Image Buffer>
+BODY: <Image Buffer>
 ```
 
 ## Response Formats
