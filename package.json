@@ -1,5 +1,5 @@
 {
-  "name": "hackerbay_nodejs_task",
+  "name": "hackerbay_node_task",
   "version": "1.0.0",
   "description": "NodeJS Task for Hackerbay Interview",
   "main": "index.js",
@@ -15,18 +15,18 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dave-ok/hackerbay-nodejs-task.git"
+    "url": "git+https://github.com/dave-ok/hackerbay-node-task.git"
   },
   "keywords": [
     "hackerbay",
     "nodejs"
   ],
   "author": "David Okanlawon",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dave-ok/hackerbay-nodejs-task/issues"
+    "url": "https://github.com/dave-ok/hackerbay-node-task/issues"
   },
-  "homepage": "https://github.com/dave-ok/hackerbay-nodejs-task#readme",
+  "homepage": "https://github.com/dave-ok/hackerbay-node-task#readme",
   "dependencies": {
     "cors": "^2.8.5",
     "debug": "^4.3.1",
