@@ -93,7 +93,7 @@ STATUS 200
 }
 ```
 
-- If the raw thumbnail image is needed the `raw?true` query parameter is appended to the request
+- If the raw thumbnail image is needed the `raw?true` query parameter is appended to the request and the response body of the request contains the raw thumbnail image
 
 Sample Raw Thumbnail Request:
 
@@ -107,12 +107,7 @@ Sample Raw Thumbnail Response:
 
 ```
 STATUS 200
-{
-  data: {
-    base64Thumbnail: "ahdhgj767XOZX9oucxozljAUxu8aooasxcsc...."
-  },
-  status: "success"
-}
+Response Body: <Image Buffer>
 ```
 
 ## Response Formats
