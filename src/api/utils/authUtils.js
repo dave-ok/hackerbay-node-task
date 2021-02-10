@@ -1,7 +1,10 @@
 import jwt from "jsonwebtoken";
 
 export const generateToken = (payload) => {
-  const secretPhrase = Buffer.from(process.env.JWT_SECRET, "base64");
+  const secretPhrase = Buffer.from(
+    process.env.JWT_SECRET || "My Super-Duper Secret",
+    "base64"
+  );
   const token = jwt.sign({ payload }, secretPhrase, { expiresIn: "24h" });
 
   return token;
