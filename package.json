@@ -28,6 +28,7 @@
   },
   "homepage": "https://github.com/dave-ok/hackerbay-node-task#readme",
   "dependencies": {
+    "@babel/runtime": "^7.12.13",
     "cors": "^2.8.5",
     "debug": "^4.3.1",
     "dotenv": "^8.2.0",
