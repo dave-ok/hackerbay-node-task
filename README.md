@@ -1,6 +1,6 @@
 # Backend Task for HackerBay (using NodeJS)
 
-This is a short project in fulfillment of preliminary requirements for the role of a software developer in HackerBay. This task focuses on showcasing backend skills by building a simple REST API using NodeJS.
+This is a short project in fulfillment of preliminary requirements for the role of a software developer in HackerBay. This task focuses on showcasing backend skills by building a simple REST API using NodeJS. A live demo version is available [here](https://hackerbay-utils-app.herokuapp.com), with swagger docs [here](https://hackerbay-utils-app.herokuapp.com/docs).
 
 ## REST API features
 
